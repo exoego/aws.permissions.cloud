@@ -191,7 +191,7 @@ function readable_date(str) {
 }
 
 function processManagedPolicy(policy_data, iam_def) {
-    effective_policy_table_content = '';
+    let effective_policy_table_content = '';
 
     $('#managedpolicytags').html((policy_data['data_access'] ? ' <span class="badge badge-info">data access</span>' : '') + (policy_data['resource_exposure'] ? ' <span class="badge badge-info">resource exposure</span>' : '') + (policy_data['credentials_exposure'] ? ' <span class="badge badge-info">credentials exposure</span>' : '') + (policy_data['unknown_actions'].length ? ' <span class="badge badge-warning">unknown actions</span>' : '') + (policy_data['privesc'] ? ' <span class="badge badge-warning">possible privesc</span>' : '') + (policy_data['malformed'] ? ' <span class="badge badge-danger">malformed</span>' : '') + (policy_data['deprecated'] ? ' <span class="badge badge-danger">deprecated</span>' : '') + (policy_data['undocumented_actions'] ? ' <span class="badge badge-danger">undocumented actions</span>' : ''));
     $('#managedpolicyarn').html(policy_data['arn']);
@@ -225,10 +225,10 @@ function processManagedPolicy(policy_data, iam_def) {
 }
 
 function processCustomPolicy(iam_def, tags) {
-    effective_policy_table_content = '';
+    let effective_policy_table_content = '';
 
     try {
-        policy_json = JSON.parse($('.custompolicy').val());
+        const policy_json = JSON.parse($('.custompolicy').val());
 
         var allactions = {}
         iam_def.forEach(service => {
