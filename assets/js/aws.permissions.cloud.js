@@ -580,6 +580,9 @@ async function processReferencePage() {
     let tags_data = await fetch('https://iann0036.github.io/iam-dataset/aws/tags.json');
     let tags = await tags_data.json();
 
+    const actions_data = await fetch('https://raw.githubusercontent.com/exoego/iam-dataset/managedpolicy-index/aws/actions.json');
+    const actions = await actions_data.json();
+
     $('#actions-table tbody').html('');
 
     iam_def.sort((a, b) => a['service_name'].replace("Amazon ", "").replace("AWS ", "") < b['service_name'].replace("Amazon ", "").replace("AWS ", "") ? -1 : 1)
@@ -852,6 +855,7 @@ async function processReferencePage() {
     // by tag
     if (window.location.pathname.startsWith("/tag")) {
         let tag = decodeURIComponent(window.location.pathname.replace(/\/tag\//g, ""));
+
         let bytag_actions_table_content = '';
         let bytag_iam_count = 0;
 
