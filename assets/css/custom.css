@@ -23,3 +23,14 @@ input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
     -webkit-appearance:none;
 }
+
+.table.table-sticky-first-column {
+    /* To keep showing border-right of sticky cells */
+    border-collapse:separate;
+}
+.table.table-sticky-first-column th:first-child,
+.table.table-sticky-first-column td:first-child {
+    position: sticky;
+    left: 0;
+    background-color: #ffffff;
+}

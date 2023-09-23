@@ -857,6 +857,7 @@ async function processReferencePage() {
             }
 
             actions_table_content += '<tr>\
+                <td style="display: none;"><!-- Dummy column to show background color --></td>\
                 <td class="tx-medium" style="padding-left: 10px !important;">' + expand_resource_type(service, resource_type['resource_type']) + '</td>\
                 <td class="tx-medium">' + condition_keys.join("<br />") + '</td>\
             </tr>';
@@ -906,6 +907,7 @@ async function processReferencePage() {
                 }
 
                 method_table_content += '<tr>\
+                    <td style="display: none;"><!-- Dummy column to show background color --></td>\
                     <td class="tx-medium" style="padding-left: 10px !important;"><a href="' + actionlink + '">' + action['action'] + undocumented + '</a></td>\
                     <td class="tx-medium">' + template + '</td>\
                 </tr>';
@@ -976,6 +978,7 @@ async function processReferencePage() {
                         }
 
                         bytag_actions_table_content += '<tr>\
+                            <td style="display: none;"><!-- Dummy column to show background color --></td>\
                             <td class="tx-medium" style="padding-left: 10px !important;">' + expand_resource_type(service, resource_type['resource_type']) + '</td>\
                             <td class="tx-medium">' + condition_keys.join("<br />") + '</td>\
                         </tr>';
@@ -1020,8 +1023,8 @@ async function processReferencePage() {
         }
 
         managedpolicies_table_content += '<tr>\
-            <td class="tx-medium"><a href="/managedpolicies/' + managedpolicy['name'] + '">' + managedpolicy['name'] + "</a>" + (managedpolicy['data_access'] ? ' <span class="badge badge-info">data access</span>' : '') + (managedpolicy['resource_exposure'] ? ' <span class="badge badge-info">resource exposure</span>' : '') + (managedpolicy['credentials_exposure'] ? ' <span class="badge badge-info">credentials exposure</span>' : '') + (managedpolicy['unknown_actions'] ? ' <span class="badge badge-warning">unknown actions</span>' : '') + (managedpolicy['privesc'] ? ' <span class="badge badge-warning">possible privesc</span>' : '') + (managedpolicy['malformed'] ? ' <span class="badge badge-danger">malformed</span>' : '') + (managedpolicy['deprecated'] ? ' <span class="badge badge-danger">deprecated</span>' : '') + (managedpolicy['undocumented_actions'] ? ' <span class="badge badge-danger">undocumented actions</span>' : '') + '</td>\
-            <td class="tx-normal">' + managedpolicy['access_levels'].join(", ") + '</td>\
+            <td class="tx-medium text-wrap"><a href="/managedpolicies/' + managedpolicy['name'] + '">' + managedpolicy['name'] + '</a>' + (managedpolicy['data_access'] ? ' <span class="badge badge-info">data access</span>' : '') + (managedpolicy['resource_exposure'] ? ' <span class="badge badge-info">resource exposure</span>' : '') + (managedpolicy['credentials_exposure'] ? ' <span class="badge badge-info">credentials exposure</span>' : '') + (managedpolicy['unknown_actions'] ? ' <span class="badge badge-warning">unknown actions</span>' : '') + (managedpolicy['privesc'] ? ' <span class="badge badge-warning">possible privesc</span>' : '') + (managedpolicy['malformed'] ? ' <span class="badge badge-danger">malformed</span>' : '') + (managedpolicy['deprecated'] ? ' <span class="badge badge-danger">deprecated</span>' : '') + (managedpolicy['undocumented_actions'] ? ' <span class="badge badge-danger">undocumented actions</span>' : '') + '</td>\
+            <td class="tx-normal text-wrap">' + managedpolicy['access_levels'].join(", ") + '</td>\
             <td class="tx-normal">' + managedpolicy['version'] + '</td>\
             <td class="tx-normal" style="text-decoration-line: underline; text-decoration-style: dotted;">' + readable_date(managedpolicy['createdate']) + '</td>\
             <td class="tx-normal" style="text-decoration-line: underline; text-decoration-style: dotted;">' + readable_date(managedpolicy['updatedate']) + '</td>\
